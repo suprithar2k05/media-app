@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Poiret+One&display=swap');
+
+.grid {
+  z-index: -1;
+  display: grid;
+  align-content: center;
+  overflow: auto;
+  max-height: 100vh;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
+  align-content: start;
+  justify-items: stretch;
+  align-items: start;
+
+  min-height: 110vh;
+  padding: 1rem;
+
+  @media screen and (max-width: 650px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+    & img {
+      flex: 1 1 40vw;
+    }
+  }
+}
+
+:root {
+  --index: 0;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+
+  opacity: 0;
+  animation-name: fade-in;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+.loader-placeholder {
+  grid-column: span 4;
+  text-align: center;
+  background-color: yellow;
+}
+
+.fade-in-animate {
+  animation-name: fade-in;
+}
+
+@keyframes fade-in {
+  100% {
+    opacity: 1;
+  }
+}
